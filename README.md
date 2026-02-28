@@ -59,6 +59,27 @@ GET /download?url=https://www.youtube.com/watch?v=dQw4w9WgXcQ&format=best[height
 ![Demo](demo.gif)
 
 
+## ☁️ Deploy on Render
+
+### Option 1: Using Blueprint (Recommended)
+1. Fork this repository
+2. Go to [Render Dashboard](https://dashboard.render.com/) → **New** → **Blueprint**
+3. Connect your forked repository
+4. Render will auto-configure using `render.yaml`
+
+### Option 2: Manual Setup
+1. Go to [Render Dashboard](https://dashboard.render.com/) → **New** → **Web Service**
+2. Connect your repository
+3. Set the following:
+   - **Runtime**: Python
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+4. Add environment variable `ALLOWED_ORIGIN` with your frontend URL
+
+> **Note**: Make sure to select **Python** as the runtime. Selecting Node or leaving auto-detect without a `requirements.txt` will cause a `Cannot find module 'server/index.js'` error.
+
+---
+
 ## ✅ Supported Platforms
 
 This project supports video downloads from the following platforms (and more):
