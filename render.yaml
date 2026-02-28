@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: social-media-video-downloader
+    runtime: python
+    buildCommand: pip install .
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
